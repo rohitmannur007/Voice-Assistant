@@ -1,111 +1,105 @@
-## :running: :walking: :dancer: Pose-With-Action
-![pose_with_action](https://user-images.githubusercontent.com/62059604/99776776-5db0de00-2b37-11eb-97e7-b39f53f2d703.gif)
 
-![Untitled design (4)](https://user-images.githubusercontent.com/62059604/99800421-5818bf80-2b5a-11eb-83ad-c0fe6a2d48be.png)
+# **Voice Assistant for Home Automation**
 
-![Untitled design (5)](https://user-images.githubusercontent.com/62059604/99800592-9e6e1e80-2b5a-11eb-8f70-4796dd0ee36a.png)
+## **Project Overview**
+This project is a voice-controlled assistant powered by deep learning and NLP technologies, designed to perform tasks such as setting reminders, playing music, providing real-time information, and controlling home automation systems. The assistant adapts to user interactions, becoming smarter over time. This project was developed from scratch, including data collection, model building, and deployment.
 
-- This repository represents **" Action Recognition Using Alphapose "**.
-- With the help of this project we can detect the human Actions/Activities based on the **Human Pose**.
-  
-## 📝 Description
-- This implemantation is based on official **Alphapose** repository https://github.com/MVIG-SJTU/AlphaPose 
-- In this project we have used **Alphapose** and **XGBOOST** for activity recognition.
+---
 
-## ⏳ Dataset
-- Download the dataset for custom training
-- https://drive.google.com/drive/folders/1CFxvuigTzbnRXUojFeCRozxjUbYiQ8RM?usp=sharing 
+## **Features**
+- **Voice Interaction**: Responds to voice commands to perform tasks.
+- **Real-Time Information**: Provides weather updates, news, and other real-time data.
+- **Home Automation**: Controls smart home devices with voice commands.
+- **Self-learning**: Continuously improves through live interaction.
+- **Custom Dataset**: Voice dataset collected for the Indian continent and other regions.
 
-## 🏽‍ Download Object Detection Model
-- Download the object detection model manually : **yolov3-spp.weights** file from following Drive Link
-- https://drive.google.com/file/d/1h2g_wQ270_pckpRCHJb9K78uDf-2PsPd/view?usp=sharing
-- Download the weight file and Place it into **" detector/yolo/data/ "** folder.
+---
 
-##  🏽‍ For Pose Tracking, Download the object tracking model
-- For pose tracking, download the object tracking model manually: **" JDE-1088x608-uncertainty "** from following Drive Link 
-- https://drive.google.com/file/d/1oeK1aj9t7pTi1u70nSIwx0qNVWvEvRrf/view?usp=sharing
-- Download the file and Place it into **" detector/tracker/data/ ".** folder.
+## **Technologies Used**
+- **Programming Languages**: Python
+- **Machine Learning**: Deep Learning (NLP)
+- **Libraries/Frameworks**:
+  - TensorFlow
+  - Keras
+  - SpeechRecognition
+  - NLTK
+  - SpaCy
+  - Flask (for API)
+- **Database**: SQL
+- **Cloud**: AWS / Azure / GCP for model hosting
+- **Version Control**: Git, GitHub
 
-## 🏽‍ Download Fast.res50.pt file
-- Download the **" fast.res50.pth "** file from following Drive Link 
-- https://drive.google.com/file/d/1WrvycZnVWwltSa6cjeTznEFOyNAwHEZu/view?usp=sharing
-- Download the file and Place it into **" pretrained_models/ ".** folder.
+---
 
-## :desktop_computer:	Installation
+## **System Architecture**
+The system is composed of several modules that work together:
+1. **Voice Recognition**: Converts speech to text.
+2. **Natural Language Processing (NLP)**: Processes text input to understand and respond.
+3. **Home Automation**: Integrates with smart devices.
+4. **Machine Learning Model**: Learns from interactions to provide better responses.
 
-### :hammer_and_wrench: Requirements
-* Python 3.5+
-* Cython
-* PyTorch 1.1+
-* torchvision 0.3.0+
-* Linux
-* GCC<6.0, check https://github.com/facebookresearch/maskrcnn-benchmark/issues/25
+---
 
-## :gear: Setup
-1. Install PyTorch :-
+## **Setup & Installation**
+
+### **1. Clone the Repository:**
 ```bash
-$ pip3 install torch==1.1.0 torchvision==0.3.0
-
-```
-2. Install :-
-```bash
-$ export PATH=/usr/local/cuda/bin/:$PATH
-
-```
-```bash
-$ export LD_LIBRARY_PATH=/usr/local/cuda/lib64/:$LD_LIBRARY_PATH
-
-```
-```bash
-$ pip install cython
-
-```
-```bash
-$ sudo apt-get install libyaml-dev
-
-```
-```bash
-$ python setup.py build develop --user
-
-```
-```bash
-$ python -m pip install Pillow==6.2.1
-
-```
-```bash
-$ pip install -U PyYAML
-
-```
-## 🎯 Inference demo
-1. Testing with **Images** ( Put test images in **AlphaPose/examples/demo/** )  :-
-```bash
-$ python scripts/demo_inference.py --cfg configs/coco/resnet/256x192_res50_lr1e-3_1x.yaml --checkpoint pretrained_models/fast_res50_256x192.pth --indir examples/demo/ --save_img
-
-```
-2. Testing with **Video** ( Put test video in **AlphaPose/examples/demo/** )  :-
-```bash
-$ python scripts/demo_inference.py --cfg configs/coco/resnet/256x192_res50_lr1e-3_1x.yaml --checkpoint pretrained_models/fast_res50_256x192.pth --video examples/demo/3.mp4 --outdir examples/res1 --save_video --gpus 0
-
+git clone https://github.com/your-username/voice-assistant.git
+cd voice-assistant
 ```
 
+### **2. Install Dependencies:**
+```bash
+pip install -r requirements.txt
+```
 
-### :book: Please Go through [Pose_With_Action_HLD2.docx](https://github.com/iNeuron-ai/Pose-with-Action/blob/main/doc/Pose_With_Action_HLD2.docx) for more info.
+### **3. Dataset:**
+You will need to collect or create your own voice dataset, particularly focused on Indian and other global accents. Ensure it’s stored and accessible in the appropriate directory.
 
+### **4. Run the Model:**
+To test the voice assistant, run the following command:
+```bash
+python app.py
+```
 
-## Contributors <img src="https://raw.githubusercontent.com/TheDudeThatCode/TheDudeThatCode/master/Assets/Developer.gif" width=35 height=25> 
-- Akshay Kumar Prasad	
-- Akshay Namdev Kadam	
-- Arjun K	
-- ATUL KUMAR	
-- Deepak Kumar Behera	
-- Jerryl Davis	
-- Kancharla Bharath Kumar	
-- Karthik P	
-- Madhavi Patel	
-- Mukesh	
-- Oinam Bhobendra	
-- pamita singh kandari	
-- Sameer sudhir Deshmukh	
-- Sasidharan M	
-- shrinivas kandlikar
+### **5. API Endpoints (Optional)**:
+The solution exposes several API endpoints to interact with the assistant remotely. See `api_docs.md` for detailed usage.
+
+---
+
+## **Project Structure**
+```
+├── app.py               # Main application file
+├── README.md            # Project overview
+├── requirements.txt     # Dependencies
+├── datasets/            # Voice dataset
+├── models/              # Trained models
+├── static/              # Static files for UI (if applicable)
+└── utils/               # Utility scripts and modules
+```
+
+---
+
+## **Deployment**
+The model can be deployed on cloud platforms like AWS, Azure, or GCP. Follow these steps:
+1. Set up a cloud environment.
+2. Host the model using **Flask** or **FastAPI**.
+3. Expose the API for voice interaction or home automation control.
+
+---
+
+## **Evaluation Criteria**
+- **Modular Code**: The code is written in a modular fashion following PEP 8 standards.
+- **Portability**: The project works across different environments (Windows/Linux/Mac).
+- **Testing**: Comprehensive test cases are included.
+- **Logging**: All actions are logged using the Python `logging` library.
+
+---
+
+## **Future Enhancements**
+- Improved voice recognition for various accents and dialects.
+- Additional home automation features (e.g., thermostat control, security systems).
+- Mobile app integration for seamless user interaction.
+
+---
 
